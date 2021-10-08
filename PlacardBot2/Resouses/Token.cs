@@ -2,6 +2,6 @@
 {
     class Token
     {
-        static protected readonly string token = "1988064770:AAEwA6eG9x0Ara4JPmbELoSjea-oafTXmR8";
+        static protected readonly string token = "you don`t need this";
     }
 }
