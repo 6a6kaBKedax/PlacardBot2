@@ -1,9 +1,5 @@
 ﻿namespace PlacardBot2.Behaviour
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using Telegram.Bot.Args;
     using Telegram.Bot.Types;
 
     class OnText
