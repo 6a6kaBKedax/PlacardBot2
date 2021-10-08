@@ -27,6 +27,9 @@
                     case "cringe":
                         OnText.OnCringeEN(message);
                         break;
+                    case "гифка":
+                        BrigadaLogic.Brigada(message);
+                        break;
                     default:
                         BrigadaLogic.BrigadaRND(message);
                         break;

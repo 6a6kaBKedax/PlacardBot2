@@ -30,7 +30,17 @@
 
             if (!Gifs.Count.Equals(0) && rnd.Next(0, 12) == 1)
             {
-                Sender.SendChatReplayGIF(message, Gifs[rnd.Next(0, Gifs.Count-1)]);
+                Sender.SendChatReplaySticker(message, Gifs[rnd.Next(0, Gifs.Count-1)]);
+            }
+        }
+
+        public static void Brigada(Message message)
+        {
+            System.Random rnd = new System.Random();
+
+            if (!Gifs.Count.Equals(0))
+            {
+                Sender.SendChatReplaySticker(message, Gifs[rnd.Next(0, Gifs.Count - 1)]);
             }
         }
     }
