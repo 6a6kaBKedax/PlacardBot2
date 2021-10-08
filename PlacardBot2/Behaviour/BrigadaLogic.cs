@@ -6,7 +6,7 @@
 
     class BrigadaLogic
     {
-        private static List<FileStream> Gifs = new List<FileStream>();
+        private static List<string> Gifs = new List<string>();
         
         public BrigadaLogic()
         {
@@ -14,14 +14,14 @@
         }
         private static void AddInArrayGifs() 
         {
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (1).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (2).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (3).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (4).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (5).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (6).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (7).gif"));
-            Gifs.Add(System.IO.File.OpenRead(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4.gif"));
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (1).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (2).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (3).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (4).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (5).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (6).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4 (7).gif");
+            Gifs.Add(@"C:\Users\xxxss\source\repos\PlacardBot2\PlacardBot2\Resouses\GIFS\Brigada\mp4.gif");
         }
 
         public static void BrigadaRND(Message message) 
@@ -30,7 +30,7 @@
 
             if (!Gifs.Count.Equals(0) && rnd.Next(0, 12) == 1)
             {
-                Sender.SendChatReplaySticker(message, Gifs[rnd.Next(0, Gifs.Count-1)]);
+                Sender.SendChatReplaySticker(message, System.IO.File.OpenRead(Gifs[rnd.Next(0, Gifs.Count)]));
             }
         }
 
@@ -40,7 +40,9 @@
 
             if (!Gifs.Count.Equals(0))
             {
-                Sender.SendChatReplaySticker(message, Gifs[rnd.Next(0, Gifs.Count - 1)]);
+                var a = rnd.Next(0, Gifs.Count - 1);
+                System.Console.WriteLine(a);
+                Sender.SendChatReplaySticker(message, System.IO.File.OpenRead(Gifs[rnd.Next(0, Gifs.Count)]));
             }
         }
     }
