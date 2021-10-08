@@ -34,16 +34,15 @@
             }
         }
 
-        public static void Brigada(Message message)
+        public static System.IO.FileStream BrigadaReturner()
         {
             System.Random rnd = new System.Random();
 
             if (!Gifs.Count.Equals(0))
             {
-                var a = rnd.Next(0, Gifs.Count - 1);
-                System.Console.WriteLine(a);
-                Sender.SendChatReplaySticker(message, System.IO.File.OpenRead(Gifs[rnd.Next(0, Gifs.Count)]));
+                return System.IO.File.OpenRead(Gifs[rnd.Next(0, Gifs.Count)]);
             }
+            return null;
         }
     }
 }

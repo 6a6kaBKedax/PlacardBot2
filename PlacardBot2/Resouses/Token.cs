@@ -2,6 +2,6 @@
 {
     class Token
     {
-        static protected readonly string token = "you don`t need this";
+        static protected readonly string token = "";
     }
 }

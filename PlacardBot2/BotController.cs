@@ -2,6 +2,8 @@
 {
     using Telegram.Bot.Args;
     using Behaviour;
+    using System;
+
     class BotController
     {
         public static void OnMessageController(object sender, MessageEventArgs e)
@@ -9,8 +11,8 @@
             var message = e.Message;
             if (message.Text != null)
             {
-                System.Console.WriteLine($"Человечек {message.From} пишет в чат {message.Chat.Username} следующее: {message.Text}");
-                switch (message.Text)
+                System.Console.WriteLine($"Человечек {message.From} пишет в чат {message.Chat.Id} следующее: {message.Text}");
+                switch (message.Text.ToLower())
                 {
                     case "суецид":
                         OnText.OnSuicide(message);
@@ -28,10 +30,19 @@
                         OnText.OnCringeEN(message);
                         break;
                     case "гифка":
-                        BrigadaLogic.Brigada(message);
+                        OnText.OnGIF(message);
+                        break;
+                    case "убивать":
+                        OnText.OnKill(message);
+                        break;
+                    case "добить":
+                        OnText.OnFatality(message);
+                        break;
+                    case "гослинг":
+                        OnText.OnGosling(message);
                         break;
                     default:
-                        BrigadaLogic.BrigadaRND(message);
+                        OnText.OnGIFRND(message);
                         break;
                 }
             }

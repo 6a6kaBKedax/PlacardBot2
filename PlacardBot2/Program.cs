@@ -21,6 +21,7 @@
         private static void LoadResurces() 
         {
             Behaviour.BrigadaLogic b = new Behaviour.BrigadaLogic();
+            Behaviour.GoslingLogic g = new Behaviour.GoslingLogic();
         }
     }
 }

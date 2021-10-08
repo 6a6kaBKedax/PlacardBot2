@@ -58,7 +58,7 @@
             {
                 await Program.Client.SendStickerAsync(
                 message.Chat.Id,
-                stiker,
+                sticker: stiker,
                 replyToMessageId: message.MessageId
                 );
             }
@@ -75,6 +75,22 @@
                 await Program.Client.SendVideoNoteAsync(
                  chatId: message.Chat.Id,
                  videoNote: video,
+                 replyToMessageId: message.MessageId
+                );
+            }
+            catch (System.Exception x)
+            {
+                System.Console.WriteLine("передудос на" + x);
+            }
+        }
+
+        async public static void SendChatReplayVoiceMessage(Message message, System.IO.FileStream voice)
+        {
+            try
+            {
+                await Program.Client.SendVoiceAsync(
+                 chatId: message.Chat.Id,
+                 voice: voice,
                  replyToMessageId: message.MessageId
                 );
             }
