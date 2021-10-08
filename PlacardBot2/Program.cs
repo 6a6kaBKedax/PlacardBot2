@@ -1,23 +1,28 @@
-﻿using System;
-
-namespace PlacardBot2
+﻿namespace PlacardBot2
 {
+    using System;
     using Telegram.Bot;
-    using Telegram.Bot.Args;
 
     class Program
     {
-        static private readonly string token = "1988064770:AAGYkUB3fZQiuejtm-zdHSIJ3DkAJHmudbk";
+        static private string token = "1988064770:AAEwA6eG9x0Ara4JPmbELoSjea-oafTXmR8";
 
-        public static readonly TelegramBotClient Client = new TelegramBotClient(token);
+        public static TelegramBotClient Client;
 
         [Obsolete]
         static void Main(string[] args)
         {
+            Client = new TelegramBotClient(token);
+            LoadResurces();
             Client.StartReceiving();
             Client.OnMessage += BotController.OnMessageController;
-            Client.StopReceiving();
             Console.ReadKey();
-        }       
+            Client.StopReceiving();
+        }
+
+        private static void LoadResurces() 
+        {
+            Behaviour.BrigadaLogic b = new Behaviour.BrigadaLogic();
+        }
     }
 }
